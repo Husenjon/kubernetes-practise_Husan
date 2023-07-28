@@ -1,5 +1,5 @@
 - name: Package Instalisiation
-  hosts: servers
+  hosts: Worker
   tasks:
     - name: Copy file
       copy:
