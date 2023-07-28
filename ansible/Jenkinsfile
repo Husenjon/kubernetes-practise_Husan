@@ -4,7 +4,7 @@ pipeline {
         stage('startup') {
             steps {
                 sh '''
-                    echo "Hello"
+                    ls
                 '''
             }
         }
