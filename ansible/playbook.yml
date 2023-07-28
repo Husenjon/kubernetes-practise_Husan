@@ -1,0 +1,18 @@
+- name: Package Instalisiation
+  hosts: servers
+  tasks:
+    - name: Copy file
+      src: /compose.yml
+      dest: /home
+      owner: fmuyassarov
+      group: fmuyassarov
+      mode: '0644'
+    - name: Init a new swarm with default parameters
+      docker_swarm:
+        state: present
+    - name: Deploy stack from a compose file
+      docker_stack:
+        state: present
+        name: jenkins
+        compose:
+        - /home/compose.yml

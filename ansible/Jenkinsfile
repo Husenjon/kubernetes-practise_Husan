@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('startup') {
+            steps {
+                sh '''
+                    echo "Hello"
+                '''
+            }
+        }
+        stage(' Ansible-playbook') {
+            steps {
+                sh '''
+                    ansible-playbook -i inventory playbook.yml 
+                '''
+            }
+        }
+    }
+}
