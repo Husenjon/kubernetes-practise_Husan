@@ -1,9 +1,11 @@
 - name: Package Instalisiation
   hosts: Worker
   tasks:
+    - name: Show ls
+      command: "ls"
     - name: Copy file
       copy:
-        src: /compose.yml
+        src: compose.yml
         dest: /home
         owner: fmuyassarov
         group: fmuyassarov
