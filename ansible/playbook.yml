@@ -2,11 +2,12 @@
   hosts: servers
   tasks:
     - name: Copy file
-      src: /compose.yml
-      dest: /home
-      owner: fmuyassarov
-      group: fmuyassarov
-      mode: '0644'
+      copy:
+        src: /compose.yml
+        dest: /home
+        owner: fmuyassarov
+        group: fmuyassarov
+        mode: '0644'
     - name: Init a new swarm with default parameters
       docker_swarm:
         state: present
