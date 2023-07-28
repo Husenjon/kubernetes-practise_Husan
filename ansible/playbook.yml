@@ -6,10 +6,7 @@
     - name: Copy file
       copy:
         src: compose.yml
-        dest: /home
-        owner: fmuyassarov
-        group: fmuyassarov
-        mode: '0644'
+        dest: /tmp
     - name: Init a new swarm with default parameters
       docker_swarm:
         state: present
@@ -18,4 +15,4 @@
         state: present
         name: jenkins
         compose:
-        - /home/compose.yml
+        - /tmp/compose.yml
